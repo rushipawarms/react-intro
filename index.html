@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- manupulate dom in highly optimized way -->
+    <!-- here actually react alogorith which writtrn in js  -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+
+    <!-- here we changing in DOM using react  -->
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- it add for JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Counter extends React.Component{
+
+            constructor(prop){
+                super(prop);
+                this.state={
+                    count:0
+                }
+            //  this.decre=this.decre.bind(this);
+            //  this.incre=this.incre.bind(this);
+            }
+             incre=() => {
+                console.log(this);
+                this.setState({
+                    count:this.state.count+1
+                });
+            }
+            decre=()=>{
+                 console.log(this);
+                this.setState({
+                    count:this.state.count-1
+                });
+            }
+            render(){
+                return(
+                    <React.Fragment> 
+                        <p>{this.state.count}</p>
+                        <button onClick={this.incre}>+</button>
+                        <button  onClick={this.decre}>-</button>
+                    </React.Fragment>
+                )
+
+            }
+
+        }
+        function Counters(){
+            return(
+                <React.Fragment>
+                    <Counter/>
+                    <Counter/>
+                    <Counter/>
+                    <Counter/>
+                </React.Fragment>
+            )
+        }
+        ReactDOM.render(<Counters></Counters>,document.getElementById("root"));
+        // ReactDOM.render(<Hello></Hello>,document.getElementById("root"));
+    </script>
+</body>
+</html>
