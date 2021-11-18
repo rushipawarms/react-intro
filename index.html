@@ -24,16 +24,16 @@
                 this.state={
                     count:0
                 }
-            //  this.decre=this.decre.bind(this);
-            //  this.incre=this.incre.bind(this);
+            this.decre=this.decre.bind(this);
+            this.incre=this.incre.bind(this);
             }
-             incre=() => {
+             incre(){
                 console.log(this);
                 this.setState({
                     count:this.state.count+1
                 });
             }
-            decre=()=>{
+            decre(){
                  console.log(this);
                 this.setState({
                     count:this.state.count-1
